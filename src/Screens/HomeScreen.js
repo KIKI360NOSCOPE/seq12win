@@ -27,6 +27,9 @@ const HomeScreen = () => {
     /* calculate total expenses with the amount  */
     const totalExpenses = expenses.map(item => item.amount.replace('€', '').replace(',', '')).reduce((acc, item) => parseFloat(acc) + parseFloat(item), 0).toFixed(2)
 
+    /* calculate total balance with the amount  */
+    const totalBalance = (parseFloat(totalIncome) - parseFloat(totalExpenses)).toFixed(2)
+
     return (
         /* select id with picker */
         <View style={styles.container}>
@@ -50,6 +53,7 @@ const HomeScreen = () => {
                 <Text style={styles.text}>{user}</Text>
                 <Text style={styles.text}>{totalIncome}</Text>
                 <Text style={styles.text}>{totalExpenses}</Text>
+                <Text style={styles.text}>{totalBalance}</Text>
             </View>
         </View>
     )
